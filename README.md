@@ -22,11 +22,3 @@ gives you the following features:
 - documentation about other advanced patterns.
 
 ### 📖 Head over to the [documentation site](https://pwa-starter-kit.polymer-project.org/) for more details or check out [how to get started](https://pwa-starter-kit.polymer-project.org/setup)!
-
-![pwa-starter-kit screenshot](https://user-images.githubusercontent.com/1369170/39715580-a1be5126-51e2-11e8-8440-96b07be03a3c.png)
-
-## TODOs
-
-- [x] Setup Safari testing on Travis.
-- [x] Deploy all templates as demos.
-- [ ] Update to latest [Material Web Components](https://github.com/material-components/material-components-web-components).
