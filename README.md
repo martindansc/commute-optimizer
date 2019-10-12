@@ -1,24 +1,46 @@
-[![Built with pwa–starter–kit](https://img.shields.io/badge/built_with-pwa–starter–kit_-blue.svg)](https://github.com/Polymer/pwa-starter-kit "Built with pwa–starter–kit")
-[![Build status](https://api.travis-ci.org/Polymer/pwa-starter-kit.svg?branch=master)](https://travis-ci.org/Polymer/pwa-starter-kit)
+# HMH Lit-Element Starter Kit
 
-> ## 🛠 Status: In Development
-> PWA Starter Kit is currently in development. It's on the fast track to a 1.0 release, so we encourage you to use it and give us your feedback, but there are things that haven't been finalized yet and you can expect some changes.
->
-> See the list of Known Issues and TODOs, below, for updates.
+Starter repository for building Polymer/lit-element-based web components. 
 
-# PWA Starter Kit
+## Technology Stack
 
-This sample app is a starting point for building PWAs. Out of the box, the template
-gives you the following features:
-- all the PWA goodness (manifest, service worker)
-- a responsive layout
-- application theming
-- example of using Redux for state management
-- offline UI
-- simple routing solution
-- fast time-to-interactive and first-paint through the PRPL pattern
-- easy deployment to prpl-server or static hosting
-- unit and integrating testing starting points
-- documentation about other advanced patterns.
+* Polymer [Lit-Element](https://github.com/Polymer/lit-element) as base class for building native custom elements.
+* [Lit-HTML](https://polymer.github.io/lit-html/) as templating library.
+* [Typescript](http://www.typescriptlang.org/).
+* Extensible [development server](https://github.com/hmhco/mtl-nodejs-base-server) with support for bare ECMAScript imports.
+* Custom mocha-based unit test framework with code coverage: [lit-element-tester](https://github.com/drochgenius/lit-element-tester).
 
-### 📖 Head over to the [documentation site](https://pwa-starter-kit.polymer-project.org/) for more details or check out [how to get started](https://pwa-starter-kit.polymer-project.org/setup)!
+## Getting started
+
+1. Fork this repository
+
+2. Install dependencies
+
+```
+npm install
+```
+
+3. Run the watch script (should be continuously running in the background)
+
+```
+npm run watch
+```
+
+4. In another terminal window, run the development server
+
+```
+npm start
+```
+
+5. Open your browser at the given location to view your component documentation and demo pages.
+
+6. You can also execute the unit test suite
+
+```
+npm test
+```
+
+## Add your own components
+
+You can add your own components in the `src/components/` directory.
+Add the associated unit tests in the `src/unit/` directory.

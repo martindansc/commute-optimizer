@@ -1,48 +1,40 @@
 {
-  "name": "pwa-starter-kit",
-  "version": "0.9.0",
-  "contributors": [
-    "The Polymer Authors"
-  ],
-  "license": "BSD-3-Clause",
-  "repository": "Polymer/pwa-starter-kit",
-  "scripts": {
-    "start": "gulp serve",
-    "build": "tsc && polymer build --auto-base-path && gulp prpl-server",
-    "build:static": "tsc && polymer build",
-    "serve": "prpl-server --root server/build",
-    "serve:static": "polymer serve --port 5000 build/es5-bundled",
-    "test": "npm run test:unit && npm run test:integration",
-    "test:integration": "tsc && mocha test/integration --timeout=10000",
-    "test:unit": "tsc && polymer test --module-resolution=node --npm",
-    "test:sauce": "tsc && polymer test --module-resolution=node --npm -s 'windows 10/microsoftedge@17' -s 'macos 10.13/safari@11'",
-    "test:regenerate_screenshots": "tsc && mocha test/integration/screenshots-baseline/regenerate.js --timeout=15000"
-  },
-  "dependencies": {
-    "@polymer/app-layout": "^3.0.0",
-    "@polymer/polymer": "^3.1.0",
-    "@webcomponents/webcomponentsjs": "^2.2.4",
-    "lit-element": "^2.2.1",
-    "pwa-helpers": "^0.9.0",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
-  },
-  "devDependencies": {
-    "@polymer/test-fixture": "^4.0.2",
-    "axe-core": "^3.0.0",
-    "chai": "^4.1.2",
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-rename": "^1.3.0",
-    "gulp-replace": "^1.0.0",
-    "mocha": "^5.2.0",
-    "pixelmatch": "^4.0.2",
-    "polymer-cli": "^1.9.3",
-    "polyserve": "^0.27.0",
-    "prpl-server": "^1.4.0",
-    "puppeteer": "^1.5.0",
-    "typescript": "^3.1.3",
-    "wct-mocha": "^1.0.0"
-  }
+    "name": "@hmh/my-component",
+    "version": "0.0.1",
+    "description": "My Component",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "clean": "rm -rf package-lock.json node_modules/ dist/",
+        "start": "nodejs-base-server -Msc server-config.json",
+        "map": "nodejs-base-server -Mc server-config.json",
+        "build": "tsc -p src",
+        "prepubishOnly": "npm run build",
+        "watch": "npm run build; concurrently --names 'build, doc ' -c 'bgBlue,bgMagenta' 'npm run build -- -w' 'npm-watch'",
+        "test-help": "lit-element-tester -V",
+        "test": "lit-element-tester server-config.json",
+        "_generateDocs": "polymer analyze ./dist/components/*.js > ./dist/components/analysis.json"
+    },
+    "keywords": [],
+    "author": "Dominique Rochefort <dominique.rochefort@hmhco.com>",
+    "license": "GPL-3.0-or-later",
+    "dependencies": {
+        "@hmh/component-base": "latest"
+    },
+    "devDependencies": {
+        "@hmh/lit-element-tester": "latest",
+        "@hmh/nodejs-base-server": "latest",
+        "@polymer/iron-component-page": "latest",
+        "@polymer/iron-demo-helpers": "latest",
+        "@types/chai": "latest",
+        "@types/mocha": "latest",
+        "concurrently": "latest",
+        "npm-watch": "latest",
+        "polymer-cli": "latest",
+        "typescript": "latest"
+    },
+    "watch": {
+        "_generateDocs": "src/**/*"
+    }
 }
