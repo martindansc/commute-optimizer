@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, property, css } from 'lit-element';
 
 import { Map, View, Feature, Overlay } from 'ol';
-import { fromLonLat, toLonLat } from 'ol/proj';
+import { fromLonLat, toLonLat, transform } from 'ol/proj';
 import OSM from 'ol/source/OSM';
 import XYZ from 'ol/source/XYZ';
 import VectorLayer from 'ol/layer/Vector.js';
@@ -15,35 +15,23 @@ import {
   Icon,
   Circle as CircleStyle
 } from 'ol/style';
-import { Point } from 'ol/geom';
-import { Tile as TileLayer, Vector } from 'ol/layer';
-import { defaults as defaultInteractions, Select } from 'ol/interaction';
-import { defaults as defaultControls } from 'ol/control';
-import { easeOut } from 'ol/easing';
-import { unByKey } from 'ol/Observable';
-
-import { sharedStyles, OVERLAY_COLUMN_WIDTH } from '../../shared-styles';
-
-import { Layer, Categories, GeoWall } from '../types';
+import { Point, Polygon} from 'ol/geom';
+import { Tile as TileLayer } from 'ol/layer';
 
 @customElement('ol-map')
 export class OpenLayersMap extends LitElement {
-
-  private map; 
+  private map: Map;
+  private markersLayer: VectorLayer;
 
   static get styles() {
-    return css`
-
-    `;
+    return css``;
   }
 
   render() {
-
     return html`
       <link rel="stylesheet" href="node_modules/ol/ol.css" />
 
-      <div id="ol-map">
-      </div>
+      <div id="ol-map"></div>
     `;
   }
 
@@ -53,10 +41,13 @@ export class OpenLayersMap extends LitElement {
 
   updated(changedProperties: any) {
     super.updated(changedProperties);
+    console.log("update");
     this.map.render();
   }
 
   drawMap() {
+    var self = this;
+
     this.map = new Map({
       target: this.shadowRoot.getElementById('ol-map'),
       layers: [
@@ -69,5 +60,56 @@ export class OpenLayersMap extends LitElement {
         zoom: 0
       })
     });
+
+    var vectorLayer = new VectorLayer({
+      source: new VectorSource({
+        url: 'assets/data/countries.json',
+        format: new GeoJSON()
+      })
+    });
+
+    this.map.addLayer(vectorLayer);
+
+
+  
+
+    // add Event listeners
+    this.map.on('singleclick', (evt) => {
+      this.addMarker(evt.coordinate);
+    });
   }
+
+  addMarker(coordinates) {
+    console.log(coordinates);
+
+    var marker = new Feature({
+      geometry : new Point(coordinates)
+    });
+
+    marker.setStyle(new Style({
+      image: new CircleStyle({
+        radius: 5,
+        fill: new Fill({color: '#666666'}),
+        stroke: new Stroke({color: '#bada55', width: 1})
+      })
+    }));
+
+    console.log(marker);
+    
+    var vectorSource = new VectorSource({
+      features: [marker]
+    });
+
+    console.log("vector", vectorSource);
+
+    this.markersLayer = new VectorLayer({
+      source: vectorSource
+    });
+
+    console.log(this.markersLayer);
+
+    this.map.addLayer(this.markersLayer);
+  }
+
+  
 }

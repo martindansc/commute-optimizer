@@ -32,7 +32,7 @@
     "concurrently": "^4.1.0",
     "lit-element": "^2.1.0",
     "lodash": "^4.17.11",
-    "ol": "^6.0.1",
+    "ol": "5.3.1",
     "pwa-helpers": "^0.9.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
