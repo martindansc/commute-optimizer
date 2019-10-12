@@ -1,40 +1,15 @@
 {
-    "name": "@hmh/my-component",
-    "version": "0.0.1",
-    "description": "My Component",
-    "main": "dist/index.js",
-    "module": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "clean": "rm -rf package-lock.json node_modules/ dist/",
-        "start": "nodejs-base-server -Msc server-config.json",
-        "map": "nodejs-base-server -Mc server-config.json",
-        "build": "tsc -p src",
-        "prepubishOnly": "npm run build",
-        "watch": "npm run build; concurrently --names 'build, doc ' -c 'bgBlue,bgMagenta' 'npm run build -- -w' 'npm-watch'",
-        "test-help": "lit-element-tester -V",
-        "test": "lit-element-tester server-config.json",
-        "_generateDocs": "polymer analyze ./dist/components/*.js > ./dist/components/analysis.json"
-    },
-    "keywords": [],
-    "author": "Dominique Rochefort <dominique.rochefort@hmhco.com>",
-    "license": "GPL-3.0-or-later",
-    "dependencies": {
-        "@hmh/component-base": "latest"
-    },
-    "devDependencies": {
-        "@hmh/lit-element-tester": "latest",
-        "@hmh/nodejs-base-server": "latest",
-        "@polymer/iron-component-page": "latest",
-        "@polymer/iron-demo-helpers": "latest",
-        "@types/chai": "latest",
-        "@types/mocha": "latest",
-        "concurrently": "latest",
-        "npm-watch": "latest",
-        "polymer-cli": "latest",
-        "typescript": "latest"
-    },
-    "watch": {
-        "_generateDocs": "src/**/*"
-    }
+  "name": "commute-optimizer",
+  "main": "commute-optimizer.js",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "wct-mocha": "^1.0.1"
+  }
 }
