@@ -1,12 +1,106 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <title>commute-optimizer</title>
-    <script type="module" src="commute-optimizer.js"></script>
+    <meta charset="utf-8" />
+    <title>Levantando muros</title>
+    <meta name="generator" content="PWA Starter Kit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Se están erigiendo edificios del miedo, tanto reales como imaginarios, en todo el mundo, que provocan el aumento de la xenofobia y crean un mundo amurallado mucho más peligroso para todas aquellas personas que buscan refugio y seguridad. Los estados miembros de la Unión Europea y el espacio Schengen han alzado cerca de 1000 Km de muros, lo equivalente a más de seis muros de Berlín. Estos muros van acompañados de los aún más largos muros marítimos desplegados en el mar Mediterráneo,  así como los muros virtuales, sistemas de control fronterizo que buscan parar a las personas que intentan entrar en Europa, constituyendo así la 'Europa Fortaleza'"
+    />
+
+    <base href="/" />
+
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- See https://goo.gl/OOhYW5 -->
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#3f51b5" />
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="My App" />
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="My App" />
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="images/manifest/icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="96x96"
+      href="images/manifest/icon-96x96.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="images/manifest/icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="images/manifest/icon-192x192.png"
+    />
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta
+      name="msapplication-TileImage"
+      content="images/manifest/icon-144x144.png"
+    />
+    <meta name="msapplication-TileColor" content="#3f51b5" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- Default twitter cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@username" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="my-app" />
+    <meta property="og:image" content="images/manifest/icon-144x144.png" />
+
+    <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+
+    <!-- Add any global styles for body, document, etc. -->
+    <script>
+      setTimeout(function() {
+        var isIE =
+          !!navigator.userAgent.match(/Trident/g) ||
+          !!navigator.userAgent.match(/MSIE/g);
+        if (isIE) {
+          document.body.className = 'error-body';
+          var app = document.getElementById('app');
+          app.className = 'fixed-center';
+          app.innerHTML =
+            '<p>La experiencia de "Levantando muros" del Centre Delàs de estudios por la Paz ' +
+            'requiere acceder desde navegadores Microsoft Edge, Mozilla Firefox, Google' +
+            ' Chrome o Apple Safari.</p>' +
+            '<p>Para acceder con otro navegador, por favor copia el enlace completo y ' +
+            'pégalo en la barra de direcciones del nuevo navegador: https://www.centredelas.org/delas-map/</p>';
+        }
+      });
+    </script>
   </head>
   <body>
-    <commute-optimizer></commute-optimizer>
+    <my-app id="app"></my-app>
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   </body>
 </html>
